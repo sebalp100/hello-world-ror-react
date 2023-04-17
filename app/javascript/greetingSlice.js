@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -31,7 +33,6 @@ export const fetchGreeting = () => async (dispatch) => {
   dispatch(getGreetingRequest());
   try {
     const response = await axios.get('http://localhost:3000/api/v1/messages/random_greeting');
-    console.log(response.data)
     dispatch(getGreetingSuccess(response.data));
   } catch (error) {
     dispatch(getGreetingFailure(error.message));

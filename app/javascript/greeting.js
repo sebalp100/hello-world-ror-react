@@ -5,9 +5,9 @@ import { fetchGreeting } from './greetingSlice';
 function Greeting() {
   const dispatch = useDispatch();
 
-  const greeting = useSelector(state => state.greeting.greeting);
-  const loading = useSelector(state => state.greeting.loading);
-  const error = useSelector(state => state.greeting.error);
+  const greeting = useSelector((state) => state.greeting.greeting);
+  const loading = useSelector((state) => state.greeting.loading);
+  const error = useSelector((state) => state.greeting.error);
 
   useEffect(() => {
     dispatch(fetchGreeting());
@@ -18,7 +18,13 @@ function Greeting() {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <div>
+        Error:
+        {' '}
+        {error}
+      </div>
+    );
   }
 
   return (
